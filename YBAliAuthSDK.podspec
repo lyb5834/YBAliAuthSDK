@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+ 这是一个自用的集成阿里云号码认证服务SDK
+                        DESC
 
   s.homepage         = 'https://github.com/lyb5834/YBAliAuthSDK.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -29,8 +29,18 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+  s.pod_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'   }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
   s.resources           = 'YBAliAuthSDK/ATAuthSDK.framework/ATAuthSDK.bundle'
   s.vendored_frameworks = 'YBAliAuthSDK/ATAuthSDK.framework','YBAliAuthSDK/YTXMonitor.framework','YBAliAuthSDK/YTXOperators.framework'
+  s.static_framework = false
+
+  # 解决移动crash
+  s.xcconfig = {
+    'OTHER_LDFLAGS' => '-ObjC',
+    'ENABLE_BITCODE' => 'NO'
+  }
+
+
 end
