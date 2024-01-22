@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YBAliAuthSDK'
-  s.version          = '2.12.15'
+  s.version          = '2.13.2'
   s.summary          = '阿里云号码认证SDK（自用）.'
 
 # This description is used to generate tags and improve search results.
